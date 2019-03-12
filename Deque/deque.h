@@ -8,7 +8,7 @@ class DequeItem
 {
 public:
     DequeItem(const T& data) :
-        data_(data), prev(0), next(0) {}
+        data_(data), prev(nullptr), next(nullptr) {}
     T data_;
     DequeItem* prev;
     DequeItem* next;
@@ -19,7 +19,7 @@ class Deque
 {
 public:
     Deque() :
-        count(0), head(0), tail(0) {}
+        count(0), head(nullptr), tail(nullptr) {}
 
     bool empty() const
     {
@@ -75,11 +75,11 @@ public:
     {
         DequeItem<T>* temp = new DequeItem<T>(value);
 
-        temp->prev = 0;
+        temp->prev = nullptr;
         temp->data_ = value;
         temp->next = head;
 
-        if (head != 0) {
+        if (head != nullptr) {
             head->prev = temp;
         }
 
@@ -96,11 +96,11 @@ public:
     {
         DequeItem<T>* temp = new DequeItem<T>(value);
 
-        temp->next = 0;
+        temp->next = nullptr;
         temp->data_ = value;
         temp->prev = tail;
 
-        if (tail != 0) {
+        if (tail != nullptr) {
             tail->next = temp;
         }
 
